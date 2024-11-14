@@ -1,0 +1,10 @@
+{
+  "name": "app1",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^5.2.0"
+  }
+}
