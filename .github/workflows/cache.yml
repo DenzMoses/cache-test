@@ -37,8 +37,8 @@ jobs:
         run: yarn install --mode update-lockfile --inline-builds
         continue-on-error: false
 
-      - name: Verify Node Modules
-        run: ls -la node_modules  # Check if node_modules is present
+      # - name: Verify Node Modules
+      #   run: ls -la node_modules  # Check if node_modules is present
 
       - name: Build project
         run: yarn run build
