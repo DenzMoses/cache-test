@@ -12,19 +12,32 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v4
         with:
           node-version: '18.12.0'
 
       - name: Install Yarn
-        run: corepack enable &&
-             corepack prepare yarn@stable --activate
+        run: |
+          corepack enable
+          corepack prepare yarn@stable --activate
+
+      - name: Restore Turborepo build cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
 
       - name: Install dependencies
         run: yarn install --mode update-lockfile
+        continue-on-error: false  # Ensures the workflow stops if dependencies fail to install
+
+      - name: List project files (Debugging)
+        run: ls -la  # Helps verify that the working directory is correct
 
       - name: Build project
         run: yarn run build
