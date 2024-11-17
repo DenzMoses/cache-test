@@ -2,7 +2,7 @@
   "name": "app2",
   "version": "1.0.0",
   "scripts": {
-    "build": "echo 'Building app2' && mkdir -p dist && touch dist/app2.txt",
+    "build": "echo 'Building app2' && mkdir -p dist && echo 'App2 build complete' > dist/app2.txt",
     "test": "echo 'Testing app2'"
   }
 }
