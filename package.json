@@ -1,11 +1,12 @@
 {
-  "name": "my-turbo-project",
-  "private": true,
-  "workspaces": [
-    "apps/*"
-  ],
-  "devDependencies": {
-    "turbo": "^2.2.3"
-  },
-  "packageManager": "npm@7.24.0"
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "test": {
+      "dependsOn": ["build"]
+    }
+  }
 }
