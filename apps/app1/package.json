@@ -2,9 +2,7 @@
   "name": "app1",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc"
-  },
-  "dependencies": {
-    "typescript": "^5.2.0"
+    "build": "echo 'Building app1' && mkdir -p dist && touch dist/app1.txt",
+    "test": "echo 'Testing app1'"
   }
 }
